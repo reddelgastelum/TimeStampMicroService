@@ -21,6 +21,7 @@ app.get("/:date", function (request, response) {
   console.log(date);
   var result;
   date = Number(date);
+  console.log(date);
   date = new Date(date);
   
   if (date == 'Invalid Date') {
