@@ -21,14 +21,14 @@ app.get("/:date", function (request, response) {
   console.log(date);
   var result;
   date = Number(date);
-  console.log(date);
+  console.log(Number.isNaN(date));
   date = new Date(date);
   
   if (date == 'Invalid Date') {
     result = {unit:null,natural:null};
-  } else {
-    result = {unix:date.parse()};
   }
+  
+  
   //var result = date;
   console.log(result);
   response.send(result);
