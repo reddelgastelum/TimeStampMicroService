@@ -18,15 +18,15 @@ app.use(bodyParser.json());
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/:date", function (request, response) {
   var date = request.params.date;
-  console.log(date);
   var result = {};
-  date = Number(date);
-  console.log(Number.isNaN(date));
   
-  
-  if (Number.isNaN(date)) {
+  if (typeof Number(date) == 'Number') {
     result.natural = true;
+  } else {
+    result.natural = false;
   }
+  
+  
   
   
   //var result = date;
