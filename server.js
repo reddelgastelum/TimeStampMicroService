@@ -19,13 +19,13 @@ app.use(bodyParser.json());
 app.get("/:date", function (request, response) {
   var date = request.params.date;
   console.log(date);
-  var result;
+  var result = {};
   date = Number(date);
   console.log(Number.isNaN(date));
-  date = new Date(date);
   
-  if (date == 'Invalid Date') {
-    result = {unit:null,natural:null};
+  
+  if (Number.isNaN(date)) {
+    result.natural = true;
   }
   
   
