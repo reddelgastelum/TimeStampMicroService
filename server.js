@@ -20,14 +20,17 @@ app.get("/:date", function (request, response) {
   var dateString = request.params.date;
   var date;
   var result = {};
+  
   var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   for (var i = 0; i < months.length; i++) {
     if (dateString.startsWith(months[i])) {
-      result.unix = Date.parse(dateString);
+      result.unix = Date.parse(dateString) / 1000;
+      result.natural = dateString;
+      response.send(result);
     }
   }
   
-  
+  result.unix = dateString;
   
   
   //var result = date;
