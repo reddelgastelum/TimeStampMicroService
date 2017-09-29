@@ -17,10 +17,15 @@ app.use(bodyParser.json());
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/:date", function (request, response) {
-  var date = request.params.date;
+  var dateString = request.params.date;
+  var date;
   var result = {};
-  
-  console.log()
+  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  for (var i = 0; i < months.length; i++) {
+    if (dateString.startsWith(months[i])) {
+      result.unix = Date.parse(dateString);
+    }
+  }
   
   
   
