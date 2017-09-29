@@ -20,11 +20,7 @@ app.get("/:date", function (request, response) {
   var date = request.params.date;
   var result = {};
   
-  if (typeof Number(date) == 'Number') {
-    result.natural = true;
-  } else {
-    result.natural = false;
-  }
+  console.log()
   
   
   
