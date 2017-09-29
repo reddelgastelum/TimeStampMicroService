@@ -36,7 +36,8 @@ app.get("/:date", function (request, response) {
     result.natural = null;
   } else {
     result.unix = dateNumber;
-    result.natural = new Date(dateNumber)
+    date = new Date(dateNumber);
+    result.natural = months[date.getMonth()] + ;
   }
   
   
