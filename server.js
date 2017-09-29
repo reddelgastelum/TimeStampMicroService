@@ -30,7 +30,14 @@ app.get("/:date", function (request, response) {
     }
   }
   
-  result.unix = dateString;
+  dateNumber = Number(dateString);
+  if (Number.isNaN(dateNumber)) {
+    result.unix = null;
+    result.natural = null;
+  } else {
+    result.unix = dateNumber;
+    result.natural = new Date(dateNumber)
+  }
   
   
   //var result = date;
