@@ -14,8 +14,8 @@ app.use(express.static('public'));
 app.set('views', './views');
 app.set('view engine', 'html');
 
-app.get('/', function(request, response) {
-  response.render('index');
+app.get("/", function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
