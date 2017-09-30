@@ -12,6 +12,11 @@ var app = express();
 app.use(express.static('public'));
 
 app.set('views', './views');
+app.set('view engine', 'html');
+
+app.get('/', function(request, response) {
+  response.render('index');
+});
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/:date", function (request, response) {
