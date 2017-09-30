@@ -3,7 +3,6 @@
 
 // init project
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
 
 // we've started you off with Express, 
@@ -12,8 +11,7 @@ var app = express();
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+app.set('views', './views');
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/:date", function (request, response) {
@@ -35,14 +33,10 @@ app.get("/:date", function (request, response) {
     result.unix = null;
     result.natural = null;
   } else {
-    date = new Date(dateNumber);
+    date = new Date(dateNumber * 1000);
     result.natural = months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
-    result.unix = result
+    result.unix = Date.parse(result.natural) / 1000;
   }
-  
-  
-  //var result = date;
-  console.log(result);
   response.send(result);
 });
 
